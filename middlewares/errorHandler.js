@@ -1,8 +1,16 @@
 const errorHandler = (error, req, res, next) => {
   console.log(error);
-  if (error.statusCode === 404) {
+  if (error.name === "CUSTOMER_NOT_FOUND") {
     res.status(404).json({
-      message: "Not Found",
+      message: "Customer Not Found",
+    });
+  } else if (error.name === "ITEM_NOT_FOUND") {
+    res.status(404).json({
+      message: "Item Not Found",
+    });
+  } else if (error.name === "QTY_NOT_VALID") {
+    res.status(400).json({
+      message: "Quantity is not valid",
     });
   } else if (error.name === "TypeError") {
     res.status(400).json({

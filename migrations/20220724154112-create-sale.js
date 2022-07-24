@@ -29,7 +29,7 @@ module.exports = {
         allowNull: false,
       },
       qty: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: false,
       },
       total_diskon: {
