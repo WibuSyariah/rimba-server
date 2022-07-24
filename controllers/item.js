@@ -22,8 +22,10 @@ class ItemController {
         message: "Item Created",
       });
     } catch (error) {
-      const imagePath = req.file.path;
-      fs.unlinkSync(imagePath);
+      if (req.file) {
+        const imagePath = req.file.path;
+        fs.unlinkSync(imagePath);
+      }
       next(error);
     }
   }
